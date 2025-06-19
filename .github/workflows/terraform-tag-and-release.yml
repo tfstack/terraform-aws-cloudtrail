@@ -1,8 +1,10 @@
 name: Terraform Tag and Release
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["Generate terraform docs"]
+    types:
+      - completed
+
 permissions:
   contents: write
 jobs:
